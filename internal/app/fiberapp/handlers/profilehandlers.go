@@ -29,6 +29,8 @@ func (h *ProfileHandlers) HandleGetIndividual() fiber.Handler {
 			profile.PastPurchases = getPurchaseHistory(c.Hostname(), id)
 		}
 
+		fmt.Println("status", fiber.StatusOK, "method", "GET", "URI", "/api/v4/profile/"+id)
+
 		return c.Status(fiber.StatusOK).JSON(profile)
 	}
 }
