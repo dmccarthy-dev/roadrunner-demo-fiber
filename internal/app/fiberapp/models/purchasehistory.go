@@ -6,6 +6,6 @@ type PurchaseHistoryEntry struct {
 }
 
 type PurchaseHistory struct {
-	Id      string                 `json:"id"`
-	History []PurchaseHistoryEntry `json:"history"`
+	Id      string                 `json:"id,omitempty"`
+	History []PurchaseHistoryEntry `json:"history,omitempty"`
 }
