@@ -26,10 +26,14 @@ func Boot() *fiber.App {
 		return c.Next()
 	})
 
-	handler := handlers.NewProfileHandlers()
+	profileHandlers := handlers.NewProfileHandlers()
+	purchaseHistoryHandlers := handlers.NewPurchaseHistoryHandlers()
 
-	app.Get("/api/v2/profile/:id", handler.HandleGetIndividual()).
+	app.Get("/api/v2/profile/:id", profileHandlers.HandleGetIndividual()).
 		Name("get individual profile")
+
+	app.Get("/api/v2/purchase-history/:id", purchaseHistoryHandlers.HandleGetIndividual()).
+		Name("get individual purchase history")
 
 	return app
 }
